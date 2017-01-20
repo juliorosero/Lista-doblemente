@@ -39,6 +39,7 @@ public class Lista {
 	     int cont=1;
 	     if(posicion<1 || posicion>=9){
 	         System.out.println("Posicion NO encontrada");
+	         
 	     }
 	     
 	     else{
@@ -57,9 +58,41 @@ public class Lista {
 	     }
 	 }
 	
+	public void buscarPalabra(Libro libro){	 
+		Node nuevo= new Node(libro);
+		 if(estaVacia()){
+			 inicio= nuevo;
+		 }
+		 else if( nuevo.getInformacion().getNombreLibro().compareTo(inicio.getInformacion().getNombreLibro())>0){
+			 nuevo.enlace= inicio;
+			 inicio= nuevo;
+			 System.out.println("NO EXISTE");
+		 	}
+		 else {
+			 Node p= inicio.enlace; 
+			 Node q= inicio; 
+			 while(p!=null){
+				 if(nuevo.getInformacion().getNombreLibro().compareTo(p.getInformacion().getNombreLibro())<0)
+					 break;
+				 q=p;
+				 p=p.enlace;
+				
+			 }
+			 
+			 System.out.println("El elemento si existe : "+nuevo.getInformacion()  );
+
+		 	}
+		 
+		 
+	  }
+	
+	
+	
+	
+	/*
 	
 
-	public void eliminar (int posicion){
+	public void eliminar (Lista lista, int posicion){
 		 Node aux= inicio;
 	     int cont=1;
 	     if(posicion<1 || posicion>=9){
@@ -70,7 +103,7 @@ public class Lista {
 	         while(aux!=null){
 	             if (posicion ==  cont){
 	                 System.out.println("el elemento es : "+aux.getInformacion()  +": en la posicion "+ posicion);
-	                 aux.informacion.r;
+	                 aux.informacion.;
 	                 aux.enlace=null;
 	                 aux=null;
 	                 
@@ -84,7 +117,7 @@ public class Lista {
 	     }
 	}
 	
-	
+	*/
 	
 	
 	
@@ -92,7 +125,7 @@ public class Lista {
 	public int indexOf(Libro palabra) {
 	     Node aux= inicio;
 	     int cont=1;
-	     if(!palabra.equals(aux)){
+	     if(palabra.equals(aux.informacion.getNombreLibro())){
 	         System.out.println("Posicion NO encontrada");
 	     }
 		return 0;
@@ -104,7 +137,13 @@ public class Lista {
 	
 	public Nodo buscarLista(Elemento destino)
 	{
-		 Nodo indice;
+		 Nodo indice;	
+	 while(p!=null){
+		 if(nuevo.getInformacion().getNombreLibro().compareTo(p.getInformacion().getNombreLibro())<0)
+			 break;
+		 q=p;
+		 p=p.enlace;	 
+	 }
 		 for (indice = primero; indice!= null; indice = indice.enlace)
 			 if (destino == indice.dato)	 // (destino.equals(indice.dato))
 				 return indice;			

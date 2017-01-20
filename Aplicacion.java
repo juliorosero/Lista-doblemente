@@ -45,13 +45,7 @@ public class Aplicacion {
 				
 				break;
 			}
-			case 2:{
-				lista.crearEnOrden(libro);
-				salida+=lista.toString();
-				JOptionPane.showMessageDialog(null, lista);
-				
-				break;
-			}
+			
 			
 			}
 				
@@ -83,28 +77,23 @@ public class Aplicacion {
 		
 				case 1:{
 					Libro palabra=new Libro();
+					
 //					String palabra=JOptionPane.showInputDialog("Ingrese nombre de libro a buscar");
-//					lista.buscarPalabra(palabra);
+					lista.buscarPalabra(palabra);
 					
-					if((lista.indexOf(palabra) >-1))
-						System.out.println("EXISTEEEE");
-					
-				/*	if((salida.indexOf(palabra) >-1))
-							System.out.println("EXISTEEEE"+);
-					else
-						System.out.println("ÑEM NO HAY");*/
+			
 					
 					break;
 				}
 				case 2:{
 					int elim=Integer.parseInt(JOptionPane.showInputDialog("Ingrese NUMERO de libro a eliminar"));
-				 	lista.eliminar(elim);
+//				 	lista.eliminar(elim);
 					break;
 				}
 		
 			}
 			
-			System.out.println("****La lista de libros esta compuesta de :  " +lista.toString());
+//			System.out.println("****La lista de libros esta compuesta de :  " +lista.toString());
 				opcion=JOptionPane.showConfirmDialog(null, "Seguir buscando", "Continuar",JOptionPane.YES_NO_OPTION);
 			}while(opcion==JOptionPane.YES_NO_OPTION);		
 			
